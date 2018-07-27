@@ -1,0 +1,19 @@
+{{- $inServerMode := .Site.IsServer }}
+{{- $fontName := .Site.Params.font.name | default "Open Sans" }}
+{{- $fontSizes := .Site.Params.font.sizes | default (slice 300 400 600 700) }}
+{{- $scssPath := "scss/argon.scss" }}
+{{- $cssOpts := cond $inServerMode (dict "targetPath" "css/style.css") (dict "targetPath" "css/style.css") }}
+{{- $extraCss := (slice "font-awesome" "nucleo") }}
+<link href="/img/brand/favicon.png" rel="icon" type="image/png">
+{{- $fontUrl := printf "https://fonts.googleapis.com/css?family=%s:%s" (replace $fontName " " "+") (delimit $fontSizes ",") }}
+<link rel="stylesheet" href="{{ $fontUrl }}">
+{{- if $inServerMode }}
+{{- $css := resources.Get $scssPath | toCSS $cssOpts }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+{{- else }}
+{{- $css := resources.Get $scssPath | toCSS $cssOpts | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+{{- end }}
+{{- range $extraCss }}
+<link rel="stylesheet" href="{{ printf "/css/%s.css" . | relURL }}">
+{{- end }}

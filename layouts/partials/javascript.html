@@ -1,0 +1,4 @@
+{{- $jsFiles := (slice "jquery.min" "popper.min" "bootstrap.min" "headroom.min" "onscreen.min" "nouislider" "bootstrap-datepicker" "argon") }}
+{{- range $jsFiles }}
+<script type="text/javascript" src="/js/{{ . }}.js"></script>
+{{- end }}
