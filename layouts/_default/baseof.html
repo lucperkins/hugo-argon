@@ -7,11 +7,9 @@
   </head>
   <body>
     {{ partial "header.html" . }}
-    <main>
-      {{ block "main" . }}
-      {{ partial "home/main.html" . }}
-      {{ end }}
-    </main>
+    {{ block "main" . }}
+    {{ partial "home/main.html" . }}
+    {{ end }}
     {{ partial "footer.html" . }}
     {{ partial "javascript.html" . }}
   </body>
