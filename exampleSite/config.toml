@@ -1,0 +1,10 @@
+title = "Hugo Argon Theme"
+baseurl = "/"
+theme = "hugo-argon"
+
+[params]
+description = "A theme based on the Argon design system from Creative Tim"
+author = "Luc Perkins"
+[params.font]
+name = "Open Sans"
+sizes = [300,400,600,700]
