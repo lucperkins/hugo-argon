@@ -1,3 +1,9 @@
 name = "Hugo Argon"
-author = "Luc Perkins"
 licenselink = "https://github.com/lucperkins/hugo-argon/blob/master/LICENSE"
+description = "A Hugo theme based on the Argon design system from Creative Tim"
+min_version = "0.45"
+homepage = "https://github.com/lucperkins/hugo-argon"
+
+[author]
+name = "Luc Perkins"
+homepage = "https://github.com/lucperkins"
